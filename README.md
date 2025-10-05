@@ -2,50 +2,60 @@
 
 AI-powered OCR web application for extracting and processing game leaderboard data from screenshots.
 
+**Live Demo**: [Deployed on Vercel](https://tb-image-to-text.vercel.app) _(after deployment)_
+
 ## Features
 
 - 📤 Upload up to 10 images (mobile/desktop screenshots)
-- 🔍 Client-side OCR using Tesseract.js (100% free)
+- 🔍 Free OCR using Tesseract.js (no API limits)
 - 📊 Automatic sorting by points (highest to lowest)
 - ✏️ Manual data editing before export
 - 📋 Export as TSV (tab-separated, Excel-ready) or CSV download
 - 📈 Real-time progress indicator
-- 🔒 Privacy-friendly (client-side processing)
+- ⚡ Serverless backend on Vercel
 
 ## Tech Stack
 
 ### Frontend
 - Vite + React + TypeScript
 - Tailwind CSS
-- React Query
 - Axios
+- React Dropzone
 
-### Backend
-- Node.js + Express + TypeScript
+### Backend (Serverless)
+- Vercel Serverless Functions
 - Tesseract.js (OCR)
 - Sharp (image preprocessing)
-- Multer (file uploads)
+- Multiparty (file uploads)
 
 ## Project Structure
 
 ```
 tb-image-to-text/
-├── frontend/          # React application
-├── backend/           # Express API server
-└── README.md
+├── api/               # Vercel serverless functions
+│   ├── ocr/
+│   │   ├── process.ts # OCR processing endpoint
+│   │   └── health.ts  # Health check endpoint
+│   └── lib/          # Shared backend code
+├── src/              # React frontend
+├── public/           # Static assets
+├── backend/          # Original Express backend (for reference)
+├── vercel.json       # Vercel configuration
+└── package.json
 ```
 
-## Getting Started
+## Local Development
 
 ### Prerequisites
 - Node.js 18+ installed
 - npm or yarn
 
-### Backend Setup
+### Setup
 
-1. Navigate to backend directory:
+1. Clone the repository:
 ```bash
-cd backend
+git clone https://github.com/paocg01-ops/tb-image-to-text.git
+cd tb-image-to-text
 ```
 
 2. Install dependencies:
@@ -53,46 +63,19 @@ cd backend
 npm install
 ```
 
-3. Create environment file:
-```bash
-cp .env.example .env
-```
-
-4. Start the development server:
+3. Start the development server:
 ```bash
 npm run dev
 ```
 
-Backend runs on `http://localhost:3001`
+The app will run on `http://localhost:5173`
 
-### Frontend Setup
-
-1. Navigate to frontend directory:
-```bash
-cd frontend
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Create environment file (optional):
-```bash
-cp .env.example .env
-```
-
-4. Start the development server:
-```bash
-npm run dev
-```
-
-Frontend runs on `http://localhost:5173`
+> **Note**: For local development, the backend API runs within Vite's dev server using a proxy. In production, Vercel handles both frontend and serverless API functions.
 
 ## API Endpoints
 
 - `POST /api/ocr/process` - Process up to 10 images and extract data
-- `GET /api/health` - Health check
+- `GET /api/ocr/health` - Health check
 
 ## Usage
 
@@ -100,6 +83,43 @@ Frontend runs on `http://localhost:5173`
 2. Wait for OCR processing
 3. Review and edit extracted data
 4. Export as TSV (copy to clipboard) or download CSV
+
+## Deployment to Vercel
+
+### Quick Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/paocg01-ops/tb-image-to-text)
+
+### Manual Deployment
+
+1. Push your code to GitHub (already done!)
+
+2. Go to [Vercel](https://vercel.com) and sign in
+
+3. Click "Add New Project"
+
+4. Import your GitHub repository: `paocg01-ops/tb-image-to-text`
+
+5. Configure the project:
+   - **Framework Preset**: Vite
+   - **Root Directory**: `./` (leave default)
+   - **Build Command**: `npm run build` (auto-detected)
+   - **Output Directory**: `dist` (auto-detected)
+
+6. Click **"Deploy"**
+
+7. Wait 2-3 minutes for deployment to complete
+
+8. Your app will be live at: `https://tb-image-to-text.vercel.app`
+
+### Features of Vercel Deployment
+
+✅ **Automatic HTTPS** - Secure by default
+✅ **Global CDN** - Fast worldwide
+✅ **Serverless Functions** - API runs in `/api` folder
+✅ **Auto Deployments** - Push to main = instant deploy
+✅ **Zero Configuration** - No environment variables needed
+✅ **Free Tier** - Perfect for this project
 
 ## License
 
