@@ -1,4 +1,4 @@
-import { PlayerData } from '../types';
+import type { PlayerData } from '../types/index.js';
 
 export class DataParser {
   parseOCRText(text: string): PlayerData[] {
