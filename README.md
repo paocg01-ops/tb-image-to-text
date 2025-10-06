@@ -36,12 +36,13 @@ tb-image-to-text/
 │   ├── ocr/
 │   │   ├── process.ts # OCR processing endpoint
 │   │   └── health.ts  # Health check endpoint
-│   └── lib/          # Shared backend code
-├── src/              # React frontend
+│   └── lib/          # Shared backend code (services, utils, types)
+├── src/              # React frontend components
 ├── public/           # Static assets
-├── backend/          # Original Express backend (for reference)
+├── examples/         # Example input images for testing
 ├── vercel.json       # Vercel configuration
-└── package.json
+├── vite.config.ts    # Vite configuration
+└── package.json      # Dependencies and scripts
 ```
 
 ## Local Development
