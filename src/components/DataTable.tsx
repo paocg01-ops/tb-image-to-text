@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PlayerData } from '../types';
+import type { PlayerData } from '../types';
 import { Pencil, Check, X } from 'lucide-react';
 
 interface DataTableProps {

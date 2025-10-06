@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ProcessImagesResponse } from '../types';
+import type { ProcessImagesResponse } from '../types';
 
 // Use relative path for API - works with Vercel deployment
 const api = axios.create({

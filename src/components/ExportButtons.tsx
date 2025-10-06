@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Download, Copy, Check } from 'lucide-react';
-import { PlayerData } from '../types';
+import type { PlayerData } from '../types';
 import { downloadCSV, exportToTSV, copyToClipboard } from '../utils/csvExport';
 
 interface ExportButtonsProps {

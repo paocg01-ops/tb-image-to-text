@@ -3,7 +3,7 @@ import { ImageUploader } from './components/ImageUploader';
 import { DataTable } from './components/DataTable';
 import { ExportButtons } from './components/ExportButtons';
 import { ProgressIndicator } from './components/ProgressIndicator';
-import { PlayerData } from './types';
+import type { PlayerData } from './types';
 import { ocrApi } from './services/api';
 
 function App() {

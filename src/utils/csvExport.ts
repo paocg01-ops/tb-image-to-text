@@ -1,5 +1,5 @@
 import Papa from 'papaparse';
-import { PlayerData } from '../types';
+import type { PlayerData } from '../types';
 
 export const exportToCSV = (data: PlayerData[]): string => {
   const csvData = data.map(player => ({
