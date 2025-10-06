@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import multiparty from 'multiparty';
-import { TesseractService } from '../lib/services/tesseract.service';
-import { ProcessImagesResponse } from '../lib/types';
+import { TesseractService } from '../lib/services/tesseract.service.js';
+import type { ProcessImagesResponse } from '../lib/types/index.js';
 
 export const config = {
   api: {

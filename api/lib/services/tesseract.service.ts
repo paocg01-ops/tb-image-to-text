@@ -1,7 +1,7 @@
 import { createWorker, Worker } from 'tesseract.js';
-import { PlayerData } from '../types';
-import { DataParser } from '../utils/dataParser';
-import { ImagePreprocessingService } from './imagePreprocessing.service';
+import type { PlayerData } from '../types/index.js';
+import { DataParser } from '../utils/dataParser.js';
+import { ImagePreprocessingService } from './imagePreprocessing.service.js';
 
 export class TesseractService {
   private worker: Worker | null = null;
