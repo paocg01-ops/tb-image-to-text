@@ -1,0 +1,5 @@
+# Vercel ignore file
+.claude/
+examples/
+*.md
+!README.md
