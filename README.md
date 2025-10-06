@@ -119,8 +119,40 @@ The app will run on `http://localhost:5173`
 ✅ **Global CDN** - Fast worldwide
 ✅ **Serverless Functions** - API runs in `/api` folder
 ✅ **Auto Deployments** - Push to main = instant deploy
+✅ **Preview Deployments** - Every PR gets a preview URL
 ✅ **Zero Configuration** - No environment variables needed
 ✅ **Free Tier** - Perfect for this project
+
+## Development Workflow
+
+We use a **feature branch workflow** with Vercel preview deployments:
+
+- **`main`** → Production deployment
+- **`develop`** → Staging deployment
+- **`feature/*`** → Preview deployments (one per PR)
+
+### Quick Start for Contributors
+
+```bash
+# Clone and setup
+git clone https://github.com/paocg01-ops/tb-image-to-text.git
+cd tb-image-to-text
+npm install
+
+# Create feature branch from develop
+git checkout develop
+git checkout -b feature/my-new-feature
+
+# Make changes, commit, and push
+git add .
+git commit -m "feat: my new feature"
+git push -u origin feature/my-new-feature
+
+# Create PR on GitHub (develop ← feature/my-new-feature)
+# Vercel will auto-deploy a preview URL!
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed workflow.
 
 ## License
 
